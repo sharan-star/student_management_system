@@ -26,7 +26,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['django-project-dv9k.onrender.com','localhost']
+ALLOWED_HOSTS = ['student-management-system-cnnt.onrender.com','localhost']
 
 
 # Application definition
