@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Drives</title>
+    <link rel="stylesheet" href="{% static 'Drives.css' %}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="list-grid">
+            {% for drive in drives %}
+            <article class="drive-card">
+                <h2>{{ drive.Role }}</h2>
+                <p><strong>Company:</strong> {{ drive.Company }}</p>
+                <p><strong>Location:</strong> {{ drive.Location }}</p>
+                <p><strong>Starts:</strong> {{ drive.starts }}</p>
+                <p class="muted">{{ drive.Job_description }}</p>
+            </article>
+            {% empty %}
+            <div class="empty-state">
+                <h2>No drive openings yet.</h2>
+                <p>Add drive records to show opportunities here.</p>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

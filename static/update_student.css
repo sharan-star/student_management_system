@@ -1,0 +1,79 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	background:
+		radial-gradient(circle at top, rgba(211, 111, 58, 0.16), transparent 30%),
+		linear-gradient(180deg, #fffaf6, #f3ece7);
+	color: #182033;
+}
+
+.form-shell {
+	width: min(760px, calc(100% - 32px));
+}
+
+.form-card {
+	background: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(14px);
+	border: 1px solid rgba(255, 255, 255, 0.92);
+	border-radius: 28px;
+	padding: 36px;
+	box-shadow: 0 24px 60px rgba(25, 38, 74, 0.14);
+}
+
+.eyebrow {
+	margin: 0 0 10px;
+	text-transform: uppercase;
+	letter-spacing: 0.18em;
+	font-size: 0.78rem;
+	font-weight: 800;
+	color: #b85f33;
+}
+
+h1 {
+	margin: 0 0 24px;
+	font-size: 2rem;
+}
+
+form {
+	display: grid;
+	gap: 14px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+input {
+	width: 100%;
+	border: 1px solid #e5d8cf;
+	border-radius: 16px;
+	padding: 15px 16px;
+	font: inherit;
+	background: #ffffff;
+}
+
+input[type="file"] {
+	padding: 12px 16px;
+}
+
+button {
+	grid-column: 1 / -1;
+	border: 0;
+	border-radius: 16px;
+	padding: 15px 18px;
+	font: inherit;
+	font-weight: 800;
+	color: #fff;
+	background: linear-gradient(135deg, #b85f33, #ef8d56);
+	cursor: pointer;
+}
+
+@media (max-width: 720px) {
+	form {
+		grid-template-columns: 1fr;
+	}
+}

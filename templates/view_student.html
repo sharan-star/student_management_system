@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>View Students</title>
+    <link rel="stylesheet" href="{% static 'view_student.css' %}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="list-grid">
+            {% for stu_detail in stu_details %}
+            <article class="student-card">
+                <div class="student-header">
+                    <h2>{{ stu_detail.Name }}</h2>
+                    <span>ID {{ stu_detail.id }}</span>
+                </div>
+                <p><strong>Age:</strong> {{ stu_detail.Age }}</p>
+                <p><strong>Phone:</strong> {{ stu_detail.Phone_no }}</p>
+                <p><strong>Course:</strong> {{ stu_detail.Course }}</p>
+                {% if stu_detail.Resume %}
+                <a class="text-link" href="{{ stu_detail.Resume.url }}" target="_blank">View Resume</a>
+                {% else %}
+                <p class="muted">No resume uploaded</p>
+                {% endif %}
+                <p><strong>Email:</strong> {{ stu_detail.Email }}</p>
+                <p><strong>Address:</strong> {{ stu_detail.Address }}</p>
+                <div class="card-actions">
+                    <a class="action-button" href="{% url 'update_student' stu_detail.id %}">Edit</a>
+                    <a class="action-button danger" href="{% url 'delete_student' stu_detail.id %}">Delete</a>
+                </div>
+            </article>
+            {% empty %}
+            <div class="empty-state">
+                <h2>No students yet.</h2>
+                <p>Add the first student to populate this page.</p>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

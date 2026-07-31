@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'update_student.css' %}">
+</head>
+<body>
+    <main class="form-shell">
+        <section class="form-card">
+            <p class="eyebrow">Edit student</p>
+            <h1>Update details</h1>
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="Student_name" value="{{ student.Name }}" placeholder="Enter student name">
+                <input type="text" name="Student_age" value="{{ student.Age }}" placeholder="Enter student age">
+                <input type="text" name="Student_phoneno" value="{{ student.Phone_no }}" placeholder="Enter student phone number">
+                <input type="text" name="Student_course" value="{{ student.Course }}" placeholder="Enter student course">
+                <input type="file" name="Student_resume">
+                <input type="email" name="Student_email" value="{{ student.Email }}" placeholder="Enter student email">
+                <input type="text" name="Student_address" value="{{ student.Address }}" placeholder="Enter student address">
+                <button type="submit">Update student</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

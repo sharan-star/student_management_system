@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'add_student.css' %}">
+</head>
+<body>
+    <main class="form-shell">
+        <section class="form-card">
+            <p class="eyebrow">Student intake</p>
+            <h1>Add a new student</h1>
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="Student_name" placeholder="Enter student name">
+                <input type="text" name="Student_age" placeholder="Enter student age">
+                <input type="text" name="Student_phoneno" placeholder="Enter student phone number">
+                <input type="text" name="Student_course" placeholder="Enter student course">
+                <input type="file" name="Student_resume" required>
+                <input type="email" name="Student_email" placeholder="Enter student email">
+                <input type="text" name="Student_address" placeholder="Enter student address">
+                <button type="submit">Save student</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

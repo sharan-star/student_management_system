@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="{% url 'home' %}">Student Portal</a>
+        <nav class="nav-actions">
+            <a class="nav-button ghost" href="{% url 'login' %}">Login</a>
+            <a class="nav-button" href="{% url 'register' %}">Register</a>
+        </nav>
+    </header>
+    <main class="page-shell">
+        <section class="hero">
+            <p class="eyebrow">Course catalog</p>
+            <h1>Learn the stack that fits your path.</h1>
+            <p class="hero-copy">Browse the available courses and explore the technologies covered in each track.</p>
+        </section>
+
+        <section class="course-grid">
+            {% for course in courses %}
+            <article class="course-card">
+                <div class="course-image-wrap">
+                    {% if course.image %}
+                    <img class="course-image" src="{{ course.image.url }}" alt="{{ course.Name }}">
+                    {% else %}
+                    <div class="course-image placeholder">No image</div>
+                    {% endif %}
+                </div>
+                <div class="course-body">
+                    <h2>{{ course.Name }}</h2>
+                    <p class="meta"><span>Duration</span>{{ course.Duration }}</p>
+                    <p class="meta"><span>Language</span>{{ course.languages }}</p>
+                    <p class="meta"><span>Framework</span>{{ course.Framework }}</p>
+                    <p class="meta"><span>Database</span>{{ course.Database }}</p>
+                </div>
+            </article>
+            {% empty %}
+            <div class="empty-state">
+                <h2>No courses available yet.</h2>
+                <p>Add records in the admin panel to populate the landing page.</p>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

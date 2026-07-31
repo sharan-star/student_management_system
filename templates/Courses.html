@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Courses</title>
+    <link rel="stylesheet" href="{% static 'Courses.css' %}">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="course-grid">
+            {% for course in courses %}
+            <article class="course-card">
+                <div class="course-body">
+                    <h2>{{ course.Name }}</h2>
+                    <p class="meta"><span>Duration</span>{{ course.Duration }}</p>
+                    <p class="meta"><span>Language</span>{{ course.languages }}</p>
+                    <p class="meta"><span>Framework</span>{{ course.Framework }}</p>
+                    <p class="meta"><span>Database</span>{{ course.Database }}</p>
+                </div>
+            </article>
+            {% empty %}
+            <div class="empty-state">
+                <h2>No courses found.</h2>
+                <p>Populate the courses table to display them here.</p>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+</body>
+</html>

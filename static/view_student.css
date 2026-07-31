@@ -1,0 +1,103 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	min-height: 100vh;
+	background:
+		radial-gradient(circle at top left, rgba(28, 166, 154, 0.16), transparent 28%),
+		linear-gradient(180deg, #f8fcfb, #eef6f4);
+	color: #182033;
+}
+
+.page-shell {
+	width: min(1160px, calc(100% - 32px));
+	margin: 0 auto;
+	padding: 32px 0 56px;
+}
+
+.list-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 22px;
+}
+
+.student-card,
+.empty-state {
+	background: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(14px);
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	border-radius: 24px;
+	padding: 24px;
+	box-shadow: 0 20px 50px rgba(25, 38, 74, 0.12);
+}
+
+.student-header {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.student-header h2,
+.empty-state h2,
+.drive-card h2 {
+	margin: 0;
+}
+
+.student-header span {
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: #3554db;
+}
+
+.student-card p {
+	margin: 0 0 10px;
+	color: #425066;
+}
+
+.text-link {
+	display: inline-block;
+	margin: 6px 0 12px;
+	color: #2449d8;
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.muted {
+	color: #6d778c;
+}
+
+.card-actions {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 18px;
+}
+
+.action-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 18px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #2449d8, #6b7cff);
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.action-button.danger {
+	background: linear-gradient(135deg, #d64545, #f17373);
+}
+
+.empty-state {
+	grid-column: 1 / -1;
+}
+
+.empty-state p {
+	margin: 10px 0 0;
+}
