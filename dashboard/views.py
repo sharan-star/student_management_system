@@ -32,6 +32,7 @@ def login(req):
         if check_pw(password,reg_obj.Password):
             return redirect('dashboard')
     return render(req,'login.html')
+
 def register(req):
     if req.method=='POST':
         fullname=req.POST.get('FullName')
